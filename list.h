@@ -1,23 +1,21 @@
 #ifndef LIST_H_
 #define LIST_H_
 
-typedef struct node
+typedef struct nodeS
 {
-	struct node* next_p;
+	struct nodeS* next_p;
 	int value;
-} node;
+} nodeS;
 
-typedef struct
+typedef struct listS
 {
-	node* head_p;
-} list;
+	nodeS* head_p;
+} listS;
 
+int push_back(listS* list, int value);
+int pop_first(listS* list);
+int pop_last(listS* list);
+int list_print(const listS* list1);
+int list_clear(listS* list);
 
-int push_back(list* list, int value);
-int pop_first(list* list);
-int pop_last(list* list);
-int list_print(const list* list1);
-int list_clear(list* list);
-
-
-#endif /* LIST_H_ */
+#endif

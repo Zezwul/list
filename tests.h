@@ -3,12 +3,7 @@
 
 #include "list.h"
 
-void testPushBack(void);
-void testPopFront(void);
-void testPopLast(void);
-void testListClear(void);
+listS* listInit();
+listS* createTestList(unsigned int numberOfNodes);
 
-list* listInit();
-list* createTestList(unsigned int numberOfNodes);
-
-#endif /*TESTS_H_*/
+#endif
