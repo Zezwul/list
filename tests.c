@@ -49,7 +49,7 @@ Test(test, noListClearTest)
 	free(testList);
 }
 
-Test(test, pushBackTest) // LEAK
+Test(test, pushBackTest) /*leak caused by inability of usage clear function*/
 {
 	const int testValue = 1;
 	listS* testList = (listS*)malloc(sizeof(listS*));
