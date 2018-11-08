@@ -5,7 +5,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-static listS* listInit()
+static listS* listInit(void)
 {
 	listS* list1 = (listS*)malloc(sizeof(listS));
 	list1->head_p = NULL;
@@ -26,6 +26,7 @@ static listS* createTestList(const uint32_t numberOfNodes)
 Test(test, noListClearTest)
 {
 	listS* testList = (listS*)malloc(sizeof(listS*));
+	list_clear(testList);
 	cr_expect(testList->head_p == NULL);
 	free(testList);
 }
@@ -44,20 +45,10 @@ Test(test, listClearTest)
 {
 	unsigned int optimalNumberOfIterations = 3;
 
-	for (size_t i = 0; i < optimalNumberOfIterations; i++)
+	for (size_t i = 1; i < optimalNumberOfIterations + 1; i++)
 	{
-		if (i == 1)
-		{
-			listS* testList = createTestList(i);
-			list_clear(testList, NULL);
-			cr_expect(testList->head_p == NULL);
-			free(testList);
-			break;
-		}
 		listS* testList = createTestList(i);
-		list_clear(testList, NULL);
-		cr_expect(testList->head_p == NULL);
-		free(testList);
+		cr_expect(!list_clear(testList));
 	}
 }
 
@@ -68,6 +59,6 @@ Test(test, popFirstTest)
 	cr_expect(pop_first(testList, NULL) == 0);
 	cr_expect(testList->head_p->value == testValue);
 
-	list_clear(testList, NULL);
+	list_clear(testList);
 	free(testList);
 }
