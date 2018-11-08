@@ -29,6 +29,7 @@ Test(test, noListClearTest)
 	list_clear(testList);
 	cr_expect(testList->head_p == NULL);
 	free(testList);
+	testList = NULL;
 }
 
 Test(test, pushBackTest) /*leak caused by inability of usage clear function*/
@@ -49,6 +50,7 @@ Test(test, listClearTest)
 	{
 		listS* testList = createTestList(i);
 		cr_expect(!list_clear(testList));
+		testList = NULL;
 	}
 }
 
@@ -61,4 +63,5 @@ Test(test, popFirstTest)
 
 	list_clear(testList);
 	free(testList);
+	testList = NULL;
 }

@@ -97,7 +97,7 @@ int pop_last(listS* list, int *valueBuff)
 
 int list_clear(listS* list)
 {
-	if (list->head_p == NULL)
+	if (list == NULL)
 	{
 		free(list);
 		return -3;
@@ -107,8 +107,6 @@ int list_clear(listS* list)
 		pop_first(list, NULL);
 	}
 	free(list);
-	list->head_p = NULL;
-	//printf("list->head_p: %p\n", )
 
 	return 0;
 }
