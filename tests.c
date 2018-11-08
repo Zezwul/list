@@ -13,25 +13,6 @@ static listS* listInit()
 	return list1;
 }
 
-//Test(ClearTest, clear_after_init_list)
-//{
-//	listS *listTester = listInit();
-//	list_clear(listTester, NULL);
-//	printf("listTester: %p\n", listTester);
-//	free(listTester);
-//	listTester = NULL;
-//	printf("listTester: %p\n", listTester);
-//	cr_expect(listTester == NULL, "Expect true");
-//}
-//
-//Test(ClearTest, clear_after_init_head)
-//{
-//	listS *listTester = listInit();
-//	list_clear(listTester, NULL);
-//	cr_expect(listTester->head_p == NULL, "Expect true");
-//}
-
-
 static listS* createTestList(const uint32_t numberOfNodes)
 {
 	listS* testList = listInit();
@@ -90,6 +71,3 @@ Test(test, popFirstTest)
 	list_clear(testList, NULL);
 	free(testList);
 }
-
-
-
